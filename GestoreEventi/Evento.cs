@@ -57,13 +57,11 @@ namespace GestoreEventi
         {
             if (titolo.Trim() == "" && this.titolo != null)
             {
-                Console.WriteLine("non hai modificato il titolo perchè il tuo titolo inserito è vuoto");
-                this.errore = true;
+                throw new Exception("non hai modificato il titolo perchè il tuo titolo inserito è vuoto");
 
             } else if(titolo.Trim()=="" && this.titolo == null)
             {
-                Console.WriteLine("non puoi creare evento dove il titolo dell'evento è vuoto");
-                this.errore = true;
+                throw new Exception("non puoi creare evento dove il titolo dell'evento è vuoto");
             }else
             {
                 this.titolo = titolo;
@@ -78,8 +76,8 @@ namespace GestoreEventi
                 
                 if (stringToDateType <= DateTime.Now)
                 {
-                    Console.WriteLine("evento non può avere una data che sia gia passata");
-                    errore = true;
+                    throw new Exception("evento non può avere una data che sia gia passata");
+                    
                 }
                 else
                 {
@@ -129,24 +127,19 @@ namespace GestoreEventi
             string[] array = data.Split("/");
             if (array.Length != 3)
             {
-                Console.WriteLine("formattazione inserita è sbagliata bisogna inserire i dati in formatto mm/gg/yyyy");
-                this.errore = true;
-                return false;
+                throw new Exception("formattazione inserita è sbagliata bisogna inserire i dati in formatto mm/gg/yyyy");
+                
 
             }
-            else if (int.Parse(array[0]) >= 12 || int.Parse(array[0]) <= 0)
+            else if (int.Parse(array[0]) > 12 || int.Parse(array[0]) <= 0)
             {
-                Console.WriteLine("formattazione del mese è sbagliata non può avere più di 12 mesi o meno d 0");
-                this.errore = true;
-                return false;
+                throw new Exception("formattazione del mese è sbagliata non può avere più di 12 mesi o meno d 0");
 
 
             }
             else if (int.Parse(array[1]) >= 31 || int.Parse(array[1]) <= 0)
             {
-                Console.WriteLine("formattazione del giorno è sbagliata non può avere più di 31 giorni o meno d 0");
-                this.errore = true;
-                return false;
+                throw new Exception("formattazione del giorno è sbagliata non può avere più di 31 giorni o meno d 0");
 
             }
             else
@@ -168,8 +161,7 @@ namespace GestoreEventi
             makePositive(numero);
             if (numero == 0)
             {
-                Console.WriteLine("capienza massima non può essere 0 persone");
-                errore = true;
+                throw new Exception("capienza massima non può essere 0 persone");
             }
             return numero;
         }

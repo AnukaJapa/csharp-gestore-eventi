@@ -67,33 +67,40 @@ Console.WriteLine("quanti eventi vuoi inserire?");
 int NumeroEventiDaInserire =int.Parse(Console.ReadLine());
 
 do {
-    Console.WriteLine($"inserisci nome dell'evento {programmaEventiUtente.GetEventi().Count() + 1} °: ");
-    Console.WriteLine(programmaEventiUtente.GetEventi().Count());
-string nomeEvento = Console.ReadLine();
-    Console.WriteLine("inserisci data dell'evento in formato mm/gg/yyyy");
-string dataEvento  = Console.ReadLine();
-    Console.WriteLine("inserisci numeroPostiTotali");
-    int stringaContieneNumero;
-string numeroPostiDaInserire = Console.ReadLine();
-
-
-    if (int.TryParse(numeroPostiDaInserire, out stringaContieneNumero))
+    try
     {
-        int numeroPostiTotali = int.Parse(numeroPostiDaInserire);
-        Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiTotali);
+        Console.WriteLine($"inserisci nome dell'evento {programmaEventiUtente.GetEventi().Count() + 1} °: ");
+        Console.WriteLine(programmaEventiUtente.GetEventi().Count());
+        string nomeEvento = Console.ReadLine();
 
-        if (!nuovoEvento.GetErrore())
+        Console.WriteLine("inserisci data dell'evento in formato mm/gg/yyyy");
+        string dataEvento = Console.ReadLine();
+
+        Console.WriteLine("inserisci numeroPostiTotali");
+        int stringaContieneNumero;
+        string numeroPostiDaInserire = Console.ReadLine();
+
+
+        if (int.TryParse(numeroPostiDaInserire, out stringaContieneNumero))
         {
-            programmaEventiUtente.AggiungiEvento(nuovoEvento);
-        }
+            int numeroPostiTotali = int.Parse(numeroPostiDaInserire);
+            Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiTotali);
+          
+                programmaEventiUtente.AggiungiEvento(nuovoEvento);
 
-    };
+        };
 
-  
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
     
 } while (programmaEventiUtente.GetEventi().Count() != NumeroEventiDaInserire);
 
 Console.WriteLine("il numero di eventi nel programmaè :" + programmaEventiUtente.GetEventi().Count());
+
+
 
 foreach (Evento evento in programmaEventiUtente.GetEventi())
 {
