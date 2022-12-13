@@ -121,6 +121,14 @@ namespace GestoreEventi
             }
         }
 
+        //public void StampaEventi()
+        //{
+        //    foreach (Evento evento in eventi)
+        //    {
+
+        //    }
+        //}
+
         // private methods 
         private bool VerificaFormatto(string data)
         {
