@@ -2,8 +2,15 @@
 
 using GestoreEventi;
 
-Console.WriteLine("THIS IS STRING OF DATA");
-Evento event1 = new Evento("primoEvento","02/02/2024",34);
+Console.WriteLine("perfavore inserisci il nome del Evento");
+string titoloDellEvento = Console.ReadLine(); 
 
-event1.PrenotaPosti(23);
-Console.WriteLine(event1.ToString());
+Console.WriteLine("perfavore inserisci il data del Evento come mese/giorno/anno");
+string dataDellEvento = Console.ReadLine();
+
+Console.WriteLine("perfavore inserisci capienza massima dell'evento");
+int capienzaMassimaDellEvento= int.Parse(Console.ReadLine());
+
+Evento event1 = new Evento(titoloDellEvento, dataDellEvento,capienzaMassimaDellEvento);
+
+
