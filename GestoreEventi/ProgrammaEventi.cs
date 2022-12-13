@@ -14,8 +14,36 @@ namespace GestoreEventi
         public ProgrammaEventi(string titolo)
         {
 
-            this.titolo = titolo;
+            SetTitolo(titolo);
             this.eventi = new List<Evento>();
+
+        }
+//GETTER
+
+public string GetTitolo()
+        {
+            return titolo;
+        }
+public List<Evento> GetEventi()
+        {
+            return eventi;
+        }
+
+        //SETTER
+public void SetTitolo(string titolo)
+        {
+            if (titolo.Trim() == "" && this.titolo != null)
+            {
+                throw new Exception("non hai modificato il titolo perchè il tuo titolo inserito è vuoto");
+            }
+            else if (titolo.Trim() == "" && this.titolo == null)
+            {
+                throw new Exception("non puoi creare evento dove il titolo dell'evento è vuoto");
+            }
+            else
+            {
+                this.titolo = titolo;
+            }
 
         }
 
