@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi
 {
-    internal class ProgrammaEventi
+    internal class Class1
     {
     }
 }
