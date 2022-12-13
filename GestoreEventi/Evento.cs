@@ -174,17 +174,17 @@ namespace GestoreEventi
              return dataETitolo;
         }
 
-        public bool StringaContieneNumero(string numero)
+        public static int StringaContieneNumero(string numero)
         {
             int numericValue;
 
             if (int.TryParse(numero, out numericValue))
             {
-                return true;
+                return numericValue;
             }
             else
             {
-                return false;
+                throw new Exception("le tue dati inseriti non contentono il numero");
             }
         }
 

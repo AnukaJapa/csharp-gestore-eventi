@@ -3,25 +3,17 @@
 using GestoreEventi;
 using System.Runtime.InteropServices;
 
-string jello = "1234";
-int numericValue;
-Console.WriteLine(int.TryParse(jello, out numericValue));
-
-
-//string[] array = hello.Split("/");
-//Console.WriteLine(array.Length);
-
 
 //Console.WriteLine("perfavore inserisci il nome del Evento");
-//string titoloDellEvento = Console.ReadLine(); 
+//string titoloDellEvento = Console.ReadLine();
 
 //Console.WriteLine("perfavore inserisci il data del Evento come mese/giorno/anno");
 //string dataDellEvento = Console.ReadLine();
 
 //Console.WriteLine("perfavore inserisci capienza massima dell'evento");
-//int capienzaMassimaDellEvento= int.Parse(Console.ReadLine());
+//int capienzaMassimaDellEvento = int.Parse(Console.ReadLine());
 
-//Evento compleanno = new Evento(titoloDellEvento, dataDellEvento,capienzaMassimaDellEvento);
+//Evento compleanno = new Evento(titoloDellEvento, dataDellEvento, capienzaMassimaDellEvento);
 
 //Console.WriteLine("quante prenotazioni vuoi effettuare?");
 //int prenotazioniDaEffettuare = int.Parse(Console.ReadLine());
@@ -29,7 +21,7 @@ Console.WriteLine(int.TryParse(jello, out numericValue));
 
 //Console.WriteLine($@"
 //il numero di posti prenotati: {compleanno.GetPostiPrenotati()}
-//il numero di posti disponibili: {compleanno.GetCapienzaMassima() -compleanno.GetPostiPrenotati()}
+//il numero di posti disponibili: {compleanno.GetCapienzaMassima() - compleanno.GetPostiPrenotati()}
 //");
 
 //bool vuoleDisdirre = false;
@@ -40,7 +32,7 @@ Console.WriteLine(int.TryParse(jello, out numericValue));
 
 //    if (rispostaClienteDisdirre == "si")
 //    {
-//        vuoleDisdirre=true;  
+//        vuoleDisdirre = true;
 //        Console.WriteLine("indica quanti posti vuoi disdirre");
 //        int postiDaDisdirreUtente = int.Parse(Console.ReadLine());
 //        compleanno.DisdiciPosti(postiDaDisdirreUtente);
@@ -49,7 +41,8 @@ Console.WriteLine(int.TryParse(jello, out numericValue));
 //          il numero di posti prenotati: {compleanno.GetPostiPrenotati()}
 //          il numero di posti disponibili: {compleanno.GetCapienzaMassima() - compleanno.GetPostiPrenotati()}
 //");
-//    }else
+//    }
+//    else
 //    {
 //        vuoleDisdirre = false;
 //    }
@@ -77,18 +70,13 @@ do {
         string dataEvento = Console.ReadLine();
 
         Console.WriteLine("inserisci numeroPostiTotali");
-        int stringaContieneNumero;
+       
         string numeroPostiDaInserire = Console.ReadLine();
-
-
-        if (int.TryParse(numeroPostiDaInserire, out stringaContieneNumero))
-        {
-            int numeroPostiTotali = int.Parse(numeroPostiDaInserire);
-            Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiTotali);
+       int numeroPostiDaInserireNumerico =  Evento.StringaContieneNumero(numeroPostiDaInserire);
+       
+            Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiDaInserireNumerico);
           
                 programmaEventiUtente.AggiungiEvento(nuovoEvento);
-
-        };
 
     }
     catch (Exception e)
