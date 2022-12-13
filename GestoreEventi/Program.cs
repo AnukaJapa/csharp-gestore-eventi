@@ -44,7 +44,6 @@ do
         vuoleDisdirre = false;
     }
 
-
 } while (vuoleDisdirre);
 
 
