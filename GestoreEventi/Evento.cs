@@ -127,7 +127,14 @@ namespace GestoreEventi
                 throw new Exception("capienza massima non può essere 0 persone");
             }
             return numero;
+        }
 
+        public override string ToString()
+        {
+            string dataETitolo = @$"
+            Titolo:{titolo} 
+            Data: {this.data.ToString("MM/dd/yyyy")}";
+             return dataETitolo;
         }
 
     }
