@@ -37,7 +37,8 @@ do
 
         Console.WriteLine($@"
           il numero di posti prenotati: {event1.GetPostiPrenotati()}
-          il numero di posti disponibili: {event1.GetCapienzaMassima() - event1.GetPostiPrenotati()}");
+          il numero di posti disponibili: {event1.GetCapienzaMassima() - event1.GetPostiPrenotati()}
+");
     }else
     {
         vuoleDisdirre = false;
