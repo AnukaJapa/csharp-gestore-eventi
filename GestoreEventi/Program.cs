@@ -73,16 +73,39 @@ string nomeEvento = Console.ReadLine();
     Console.WriteLine("inserisci data dell'evento in formato mm/gg/yyyy");
 string dataEvento  = Console.ReadLine();
     Console.WriteLine("inserisci numeroPostiTotali");
-int numeroPostiTotali = int.Parse(Console.ReadLine());
+    int stringaContieneNumero;
+string numeroPostiDaInserire = Console.ReadLine();
 
-Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiTotali);
-  
-    if (!nuovoEvento.GetErrore())
+
+    if (int.TryParse(numeroPostiDaInserire, out stringaContieneNumero))
     {
-        programmaEventiUtente.AggiungiEvento(nuovoEvento);
-    } 
+        int numeroPostiTotali = int.Parse(numeroPostiDaInserire);
+        Evento nuovoEvento = new Evento(nomeEvento, dataEvento, numeroPostiTotali);
 
+        if (!nuovoEvento.GetErrore())
+        {
+            programmaEventiUtente.AggiungiEvento(nuovoEvento);
+        }
+
+    };
+
+  
+    
 } while (programmaEventiUtente.GetEventi().Count() != NumeroEventiDaInserire);
+
+Console.WriteLine("il numero di eventi nel programmaè :" + programmaEventiUtente.GetEventi().Count());
+
+foreach (Evento evento in programmaEventiUtente.GetEventi())
+{
+    Console.WriteLine(evento.ToString());
+} ;
+
+Console.WriteLine("inserisci data da quale vuoi stampare gli eventi");
+string dataUtente = Console.ReadLine();
+
+
+ProgrammaEventi.StampaListaDiEventi(RestituisciListaDiEventi(dataUtente));
+
 
 
 

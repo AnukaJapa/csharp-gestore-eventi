@@ -174,25 +174,26 @@ namespace GestoreEventi
             return numero;
         }
 
-        private void StringaContieneNumero(string numero)
-        {
-            int numericValue;  
-           
-            if (int.TryParse(numero, out numericValue))
-            {
-                return numericValue;
-            } else
-            {
-
-            }
-        }
-
         public override string ToString()
         {
             string dataETitolo = @$"
             Titolo:{titolo} 
             Data: {this.data.ToString("MM/dd/yyyy")}";
              return dataETitolo;
+        }
+
+        public bool StringaContieneNumero(string numero)
+        {
+            int numericValue;
+
+            if (int.TryParse(numero, out numericValue))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

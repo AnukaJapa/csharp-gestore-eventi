@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,8 +54,9 @@ public void SetTitolo(string titolo)
             this.eventi.Add(evento);
         }
 
-        public void RestituisciListaDiEventi(string data)
+        public List<Evento> RestituisciListaDiEventi(string data)
         {
+            List <Evento> listaEventi = new List<Evento>();
             if (eventi.Exists(evento => evento.GetData() == data))
             {
                 Console.WriteLine("questi sono eventi di questa data");
@@ -62,27 +64,30 @@ public void SetTitolo(string titolo)
                 {
                     if (evento.GetData() == data)
                     {
-                        Console.WriteLine("-" + evento.GetTitolo());
+                        listaEventi.Add(evento); 
                     }
                 }
-
             }
             else
             {
                 Console.WriteLine("non è stato trovato nessun evento in questa data");
             }
 
+            return listaEventi;
+
         }
 
         public static void StampaListaDiEventi(List<Evento> listaEventi)
         {
+            
             string listaDiEventiInStringa = "";
             foreach (Evento evento in listaEventi)
             {
-                listaDiEventiInStringa += $@" - {evento.GetTitolo()}";
+                listaDiEventiInStringa += $"{evento.ToString()}";
             }
             Console.WriteLine(listaDiEventiInStringa);
         }
+
 
         public void SvuotaListaDiEventi(List<Evento> listaEventi)
         {
