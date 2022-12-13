@@ -22,3 +22,31 @@ il numero di posti prenotati: {event1.GetPostiPrenotati()}
 il numero di posti disponibili: {event1.GetCapienzaMassima() -event1.GetPostiPrenotati()}
 ");
 
+bool vuoleDisdirre = false;
+do
+{
+    Console.WriteLine("vuoi disdirre i Posti? (si/no)");
+    string rispostaClienteDisdirre = Console.ReadLine();
+
+    if (rispostaClienteDisdirre == "si")
+    {
+        vuoleDisdirre=true;  
+        Console.WriteLine("indica quanti posti vuoi disdirre");
+        int postiDaDisdirreUtente = int.Parse(Console.ReadLine());
+        event1.DisdiciPosti(postiDaDisdirreUtente);
+
+        Console.WriteLine($@"
+          il numero di posti prenotati: {event1.GetPostiPrenotati()}
+          il numero di posti disponibili: {event1.GetCapienzaMassima() - event1.GetPostiPrenotati()}");
+    }else
+    {
+        vuoleDisdirre = false;
+    }
+
+
+} while (vuoleDisdirre);
+
+
+
+
+
