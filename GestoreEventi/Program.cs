@@ -102,9 +102,11 @@ foreach (Evento evento in programmaEventiUtente.GetEventi())
 
 Console.WriteLine("inserisci data da quale vuoi stampare gli eventi");
 string dataUtente = Console.ReadLine();
+List <Evento> listaEventiUtente = programmaEventiUtente.RestituisciListaDiEventi(dataUtente);
 
 
-ProgrammaEventi.StampaListaDiEventi(RestituisciListaDiEventi(dataUtente));
+ProgrammaEventi.StampaListaDiEventi(listaEventiUtente);
+
 
 
 

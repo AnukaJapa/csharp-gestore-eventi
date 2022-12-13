@@ -56,7 +56,7 @@ public void SetTitolo(string titolo)
 
         public List<Evento> RestituisciListaDiEventi(string data)
         {
-            List <Evento> listaEventi = new List<Evento>();
+            List <Evento> listaEventi = new List<Evento>() { };
             if (eventi.Exists(evento => evento.GetData() == data))
             {
                 Console.WriteLine("questi sono eventi di questa data");
