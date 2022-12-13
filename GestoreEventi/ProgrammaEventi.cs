@@ -14,10 +14,8 @@ namespace GestoreEventi
 
         public ProgrammaEventi(string titolo)
         {
-
             SetTitolo(titolo);
             this.eventi = new List<Evento>();
-
         }
 //GETTER
 

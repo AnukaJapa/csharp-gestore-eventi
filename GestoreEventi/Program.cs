@@ -100,7 +100,10 @@ string dataUtente = Console.ReadLine();
 List <Evento> listaEventiUtente = programmaEventiUtente.RestituisciListaDiEventi(dataUtente);
 
 
+
+programmaEventiUtente.AggiungiEvento(new Conferenza("sole", "12/12/2023",34,"Core Lin", 23.12));
 ProgrammaEventi.StampaListaDiEventi(listaEventiUtente);
+
 
 
 
