@@ -123,7 +123,7 @@ namespace GestoreEventi
             }
         }
 
-        private bool VerificaFormatto(string data)
+        public static bool VerificaFormatto(string data)
         {
             string[] array = data.Split("/");
             if (array.Length != 3)

@@ -39,9 +39,7 @@ namespace GestoreEventi
 
         public override string ToString()
         {
-            return base.ToString() + $@"
-            relatore: {relatore}
-            prezzo: {PrezzoFormattato(this.prezzo)}";
+            return base.ToString() + $@"- {relatore} - {PrezzoFormattato(this.prezzo)}";
         }
 
     }
