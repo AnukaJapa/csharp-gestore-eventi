@@ -3,6 +3,7 @@
 using GestoreEventi;
 using System.Runtime.InteropServices;
 
+Console.WriteLine(Evento.StringaContieneNumero("1234"));
 
 //Console.WriteLine("perfavore inserisci il nome del Evento");
 //string titoloDellEvento = Console.ReadLine();
@@ -62,7 +63,7 @@ int NumeroEventiDaInserire =int.Parse(Console.ReadLine());
 do {
     try
     {
-        Console.WriteLine($"inserisci nome dell'evento {programmaEventiUtente.GetEventi().Count() + 1} °: ");
+        Console.WriteLine($"inserisci nome dell'evento {programmaEventiUtente.NumeroDiEventiPresenti() + 1} °: ");
         Console.WriteLine(programmaEventiUtente.GetEventi().Count());
         string nomeEvento = Console.ReadLine();
 
@@ -84,9 +85,9 @@ do {
         Console.WriteLine(e.Message);
     }
     
-} while (programmaEventiUtente.GetEventi().Count() != NumeroEventiDaInserire);
+} while (programmaEventiUtente.NumeroDiEventiPresenti() != NumeroEventiDaInserire);
 
-Console.WriteLine("il numero di eventi nel programmaè :" + programmaEventiUtente.GetEventi().Count());
+Console.WriteLine("il numero di eventi nel programmaè :" + programmaEventiUtente.NumeroDiEventiPresenti());
 
 
 
@@ -97,6 +98,7 @@ foreach (Evento evento in programmaEventiUtente.GetEventi())
 
 Console.WriteLine("inserisci data da quale vuoi stampare gli eventi");
 string dataUtente = Console.ReadLine();
+
 List <Evento> listaEventiUtente = programmaEventiUtente.RestituisciListaDiEventiPerCertaData(dataUtente);
 ProgrammaEventi.RestituisciListaDiEventi(listaEventiUtente);
 

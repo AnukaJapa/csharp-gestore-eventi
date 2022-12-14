@@ -88,6 +88,8 @@ namespace GestoreEventi
         }
 
        //public methods
+
+   
        public void PrenotaPosti(int numeroPostiDaPrenotare)
         {
             if(this.postiPrenotati + numeroPostiDaPrenotare > this.capienzaMassima)
@@ -121,15 +123,6 @@ namespace GestoreEventi
             }
         }
 
-        //public void StampaEventi()
-        //{
-        //    foreach (Evento evento in eventi)
-        //    {
-
-        //    }
-        //}
-
-        // private methods 
         private bool VerificaFormatto(string data)
         {
             string[] array = data.Split("/");

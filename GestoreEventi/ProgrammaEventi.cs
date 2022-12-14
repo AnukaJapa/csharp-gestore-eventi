@@ -85,13 +85,17 @@ public void SetTitolo(string titolo)
             return listaDiEventiInStringa;
         }
 
+        public int NumeroDiEventiPresenti()
+        {
+            return eventi.Count();
+        }
 
         public void SvuotaListaDiEventi(List<Evento> listaEventi)
         {
             listaEventi.Clear();
         }
 
-        public string MostraTitoloEDataEventi()
+        public string MostraTitoloEDataDiTuttiEventi()
         {
             return RestituisciListaDiEventi(eventi);
         }
