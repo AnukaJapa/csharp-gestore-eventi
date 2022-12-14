@@ -52,7 +52,7 @@ public void SetTitolo(string titolo)
             this.eventi.Add(evento);
         }
 
-        public List<Evento> RestituisciListaDiEventi(string data)
+        public List<Evento> RestituisciListaDiEventiPerCertaData(string data)
         {
             List <Evento> listaEventi = new List<Evento>() { };
             if (eventi.Exists(evento => evento.GetData() == data))
@@ -75,15 +75,14 @@ public void SetTitolo(string titolo)
 
         }
 
-        public static void StampaListaDiEventi(List<Evento> listaEventi)
-        {
-            
+        public static string RestituisciListaDiEventi(List<Evento> listaEventi)
+        {   
             string listaDiEventiInStringa = "";
             foreach (Evento evento in listaEventi)
             {
                 listaDiEventiInStringa += $"{evento.ToString()}";
             }
-            Console.WriteLine(listaDiEventiInStringa);
+            return listaDiEventiInStringa;
         }
 
 
@@ -92,15 +91,9 @@ public void SetTitolo(string titolo)
             listaEventi.Clear();
         }
 
-        public string MostraTitoloDelProgrammaEEventi()
+        public string MostraTitoloEDataEventi()
         {
-            string programmaDescrizione = $@"{this.titolo}";
-            for (int i = 0; i < eventi.Count; i++)
-            {
-                programmaDescrizione += $@"data{i + 1} - {eventi[i].GetTitolo()}
-";
-            }
-            return programmaDescrizione;
+            return RestituisciListaDiEventi(eventi);
         }
     }
 }

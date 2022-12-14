@@ -97,12 +97,13 @@ foreach (Evento evento in programmaEventiUtente.GetEventi())
 
 Console.WriteLine("inserisci data da quale vuoi stampare gli eventi");
 string dataUtente = Console.ReadLine();
-List <Evento> listaEventiUtente = programmaEventiUtente.RestituisciListaDiEventi(dataUtente);
+List <Evento> listaEventiUtente = programmaEventiUtente.RestituisciListaDiEventiPerCertaData(dataUtente);
+ProgrammaEventi.RestituisciListaDiEventi(listaEventiUtente);
 
 
 Console.WriteLine("qua stamperai tutti i elementi della lista");
 programmaEventiUtente.AggiungiEvento(new Conferenza("sole", "12/12/2023",34,"Core Lin", 23.12));
-ProgrammaEventi.StampaListaDiEventi(programmaEventiUtente.GetEventi());
+ProgrammaEventi.RestituisciListaDiEventi(programmaEventiUtente.GetEventi());
 
 
 

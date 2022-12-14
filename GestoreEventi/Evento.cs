@@ -177,8 +177,7 @@ namespace GestoreEventi
         public override string ToString()
         {
             string dataETitolo = @$"
-            Titolo:{titolo} 
-            Data: {this.data.ToString("MM/dd/yyyy")}";
+            {titolo} - {this.data.ToString("MM/dd/yyyy")}";
              return dataETitolo;
         }
 
